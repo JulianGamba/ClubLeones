@@ -1,0 +1,32 @@
+{% load static %}
+
+<body class="body">
+    <header id="header">
+        <div class="container__header">
+            <div class="logo">
+                <img src="{% static 'images/logoempresa3.png' %}" alt="">
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="container__nav">
+                <nav id="nav">
+                    <ul>
+                        <li><a href="{% url 'landingpage' %}" class="select opciones nav-link">INICIO</a></li>
+                        <li><a class="opciones nav-link" href="{% url 'landingcamp' %}">CAMPEONATOS</a></li>
+                        <li><a class="opciones nav-link" href="{% url 'landingentre' %}">ENTRENAMIENTOS</a></li>
+                        <li><a class="opciones nav-link" href="{% url 'landingacond' %}">ACONDICIONAMIENTO FISICO</a></li>
+                        <a class="fondo" href="{% url 'login' %}">
+                            <button type="button" class="opciones btn btn-outline-primary">Iniciar sesión</button>
+                        </a>
+                        <a class="fondo" href="{% url 'register' %}">
+                            <button type="button" class="opciones btn btn-outline-primary">Registrarse</button>
+                        </a>
+                    </ul>
+                </nav>
+                <div class="btn__menu" id="btn_menu"><i class="fas fa-bars"></i></div>
+            </div>
+        </div>
+    </header>
+
+</body>

@@ -1,0 +1,91 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" 
+          integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" 
+          crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <title>Club Leones</title>
+</head>
+<body class="body">
+    <!-- html de la navbar -->       
+    {% include "layout/navbar_dashboard.html" %}
+    
+    <!-- Html de la side bar -->
+    {% include "layout/sidebar.html" %}
+    
+    <!-- html del contenido de la página -->
+
+    <div class="container">
+        <h1 class="text-center">Crear Test</h1>
+        <form action="" method="post">
+            <div class="row">
+                <div class="col-md-4 fondo2">
+                    <div class="mb-3 fondo2">
+                        <label for="nombre" class="form-label fondo2">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Digite el nombre" required="required" />
+                    </div>
+                    <div class="mb-3 fondo2">
+                        <label for="tipo" class="form-label fondo2">Tipo</label>
+                        <input type="text" class="form-control" id="tipo" name="tipo" placeholder="Digite el tipo" required="required" />
+                    </div>
+                    <div class="mb-3 fondo2">
+                        <label for="puntajeMinimo" class="form-label fondo2">Puntaje mínimo</label>
+                        <input type="number" class="form-control" id="puntajeMinimo" name="puntajeMinimo" required="required" />
+                    </div>
+                </div>
+                <div class="col-md-4 fondo2">
+                    <div class="mb-3 fondo2">
+                        <label for="puntajeMaximo" class="form-label fondo2">Puntaje máximo</label>
+                        <input type="number" class="form-control" id="puntajeMaximo" name="puntajeMaximo" required="required" />
+                    </div>
+                    <div class="mb-3 fondo2">
+                        <label for="puntajeMinimoBajo" class="form-label fondo2">Puntaje mínimo bajo</label>
+                        <input type="number" class="form-control" id="puntajeMinimoBajo" name="puntajeMinimoBajo" required="required" />
+                    </div>
+                    <div class="mb-3 fondo2">
+                        <label for="puntajeMaximoBajo" class="form-label fondo2">Puntaje máximo bajo</label>
+                        <input type="number" class="form-control" id="puntajeMaximoBajo" name="puntajeMaximoBajo" required="required" />
+                    </div>
+                </div>
+                <div class="col-md-4 fondo2">
+                    <div class="mb-3 fondo2">
+                        <label for="puntajeMinimoMedio" class="form-label fondo2">Puntaje mínimo medio</label>
+                        <input type="number" class="form-control" id="puntajeMinimoMedio" name="puntajeMinimoMedio" required="required" />
+                    </div>
+                    <div class="mb-3 fondo2">
+                        <label for="puntajeMaximoMedio" class="form-label fondo2">Puntaje máximo medio</label>
+                        <input type="number" class="form-control" id="puntajeMaximoMedio" name="puntajeMaximoMedio" required="required" />
+                    </div>
+                    <div class="mb-3 fondo2">
+                        <label for="puntajeMinimoAlto" class="form-label fondo2">Puntaje mínimo alto</label>
+                        <input type="number" class="form-control" id="puntajeMinimoAlto" name="puntajeMinimoAlto" required="required" />
+                    </div>
+                </div>
+                <div class="col-md-12 fondo2">
+                    <div class="mb-3 fondo2">
+                        <label for="puntajeMaximoAlto" class="form-label fondo2">Puntaje máximo alto</label>
+                        <input type="number" class="form-control" id="puntajeMaximoAlto" name="puntajeMaximoAlto" required="required" />
+                    </div>
+                    <div class="mb-3 fondo2">
+                        <label for="descripcion" class="form-label fondo2">Descripción</label>
+                        <input type="text" class="form-control" id="descripcion" name="descripcion" required="required" />
+                    </div>
+                    <div class="text-center fondo2 pb-2">
+                        <button type="submit" class="opciones btn btn-primary">Crear</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" 
+            crossorigin="anonymous"></script>
+</body>
+</html>

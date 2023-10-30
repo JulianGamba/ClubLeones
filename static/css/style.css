@@ -1,0 +1,308 @@
+
+*{
+    background-image: url("/imagenes/.png");
+    background-color: #e3f2f7;
+}
+
+/* main {
+    flex-grow: 1;
+  }   */
+
+/*Css de la navbar del landing page, login y register*/
+
+.navbar{
+    background-color: #02225a ;
+}
+
+.fondo{
+    background-color: #02225a ;
+}
+/* .header{
+    background-color: #02225a ;
+} */
+/*
+.bg_color{
+    width: 100%;
+    height: 70%;
+    background: #02225a;
+    position: absolute;
+    top: 0;
+  }
+
+.wave{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: ("../imagenes/wd1.svg");
+}
+*/
+.navbar-brand{
+    background-color: #02225a;
+    color: #fff;
+    justify-content: center;
+}
+
+.empresa{
+    background-color: #02225a;
+    color: #fff;
+    font-size: 30px;
+    /* justify-content: baseline;   */
+}
+
+.opciones{
+    font-size: 20px;
+}
+
+.nav-link{
+    color: #fff;
+}
+
+.navbar-collapse{
+    justify-content:end;
+}
+
+.navbar-toggler{
+    color: #fff;
+}
+
+.navbar-nav{
+    justify-content: space-between;
+}
+
+.btn{
+    background-color: #02225a;
+    color: #fff;
+    border-color: #fff;
+}
+
+
+.row{
+    height: 200px;
+}
+
+.col{
+    border: 3px solid #02225a;
+}
+
+/* Css del contenido que tendra la pagina, landing page, secciones de modulos */
+
+.body{
+    background-color: #e3f2f7;
+    /* display: flex;
+    flex-direction: column;
+    min-height: 100vh; */
+}
+
+.fondo-claro{
+    background-color: #e3f2f7;
+}
+
+/* Css exclusivo de las landing */
+
+.imagen-card{
+    width: 150px;
+}
+
+/* .card-altura{
+    height: 420px;
+} */
+
+/* css carrusel entrenamientos */
+
+.carrusel{
+    width: 800px; /* Cambia este valor al tamaño deseado */
+    height: 480px; /* Cambia este valor al tamaño deseado */
+    overflow: hidden;
+}
+
+.carrusel-imagen{
+    width: 100%;
+    height: auto;
+}
+
+/* css de las imagenes que usare, solo llevaran un borde negro con esquinas curvas */
+
+.img{
+    border: 3px solid;
+    border-radius: 10px;
+}
+
+/* css del login y register */
+
+.links{
+    color: #fff;
+}
+
+.texto{
+    text-align: center;
+    
+}
+
+.textoderecha{
+    text-align: right;
+}
+
+/* css del login nada mas */
+
+.caja-login{
+    background-color: #02225a;
+    justify-content: center;
+    /* text-align: center; */
+    height: 500px;
+    color: #fff;
+    border-radius: 15px;
+    border: 3px solid #02225a;
+}  
+
+.bi-people-fill {
+    text-align: center;
+    background-color: #02225a;
+    color: #fff;
+    font-size: 80px;
+  } 
+  
+/* css de el registro */
+
+
+.caja-register{
+    background-color: #02225a;
+    justify-content: center;
+        /* text-align: center; */
+    height: 550px;
+    color: #fff;
+    border-radius: 15px;
+    /*border: 3px solid #3bc6e9;*/
+}  
+
+/* .imagen{
+    height: 550px;
+} */
+/* css de la barra lateral del dashboard y demás */
+
+.btn-sidebar{
+    width: 100%;
+}
+
+.dropdown-sidebar{
+    width: 100%;
+}
+
+/* css de las tablas para mostrar la información */
+
+/* .tabla-principal{
+    border: 3px solid #02225a;
+    color: #fff;
+    background-color: #02225a;
+}
+
+.row-tabla{
+    height: 100px;
+}
+
+.col-tabla{
+    border: 3px solid #fff;
+    background-color: #02225a;
+} */
+
+.row-tabla{
+    height: 100px;
+}
+
+/* css del footer */
+
+/* .footer {
+    background-color: #02225a;
+    padding: 20px 0;
+    color: #333;
+    flex-shrink: 0;
+  }
+  
+  .footer-title {
+    background-color: #02225a;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+  
+  .footer-list li {
+    background-color: #02225a;
+    color: #fff;
+    margin-bottom: 5px;
+  }
+  
+  .footer-list a {
+    background-color: #02225a;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .footer-list a:hover {
+    text-decoration: underline;
+    color: #fff;
+  } */
+
+  /* css de las tablas de lista de perfiles */
+
+  .fila1listaperfil{
+    height: 60px;
+    background-color: #02225a;
+    color: #fff;
+    font-size: 30px;
+  }
+
+  .fila2listaperfil{
+    height: 60px;
+    font-size: 20px;
+  }
+
+  /* css del formulario de los test */
+
+  /* #5F1FE0 */
+  .containerform {
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .form-label {
+    font-weight: bold;
+    /* font-family: belanosima; */
+    font-size: 17px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+
+  .row {
+    margin-bottom: 20px;
+  }
+  
+  .fondo2{
+    background-color: #02225a;
+    color:#fff;
+  }
+
+  /* css circulo */
+
+  .circulo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #2e8ead;
+    clip-path: circle(400px at right 600px);
+    width: 100%;
+    height: 160%;
+} 
+
+  
+  

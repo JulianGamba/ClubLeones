@@ -1,0 +1,52 @@
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Servicios</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body ">
+        <div>
+            Escoja alguno de los servicios de la empresa
+        </div>
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="btn-sidebaraccordion-item">
+                <h2 class="accordion-header">
+                    <button class="fondo-claro  btn-sidebar accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                        Campeonatos
+                    </button>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <a href="{% url 'campeonatos' %}"><div class="accordion-body">Campeonatos</div></a>
+                    <a href="{% url 'programacion' %}"><div class="accordion-body">Programación</div></a>
+                    <a href="{% url 'equipos' %}"><div class="accordion-body">Equipos</div></a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="fondo-claro accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                        Entrenamientos
+                    </button>
+                </h2>
+                <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <a href="{% url 'entrenamientos' %}"><div class="accordion-body">Entrenamientos</div></a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="fondo-claro accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                        Acondicionamiento fisico
+                    </button>
+                </h2>
+                <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <a href="{% url 'tests' %}"><div class="accordion-body">Perfiles</div></a>
+                    <a href="{% url 'tests' %}"><div class="accordion-body">Test</div></a>
+                    <a href="{% url 'planes' %}"><div class="accordion-body">Plan de acondicionamiento</div></a>
+                </div>
+            </div>                 
+        </div>
+        <div class="logout text-center">
+            <a href="logout">
+            <button type="button" class="btn btn-logout btn-outline-primary">Cerrar Sesión</button>
+        </a>
+        </div>
+    </div>
+</div>
