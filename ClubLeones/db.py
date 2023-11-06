@@ -14,19 +14,8 @@ MYSQL = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'BDClubLeones',
         'USER': 'root',
-        'PASSWORD': 'LucesBonitas7.',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '3306'
     }
 }   
-
-# POSTGRESQL = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'db',
-#         'USER': 'postgres',
-#         'PASSWORD': 'password',
-#         'HOST': 'localhost',
-#         'PORT': '5432'
-#     }
-# }
