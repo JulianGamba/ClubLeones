@@ -6,7 +6,7 @@ class Entrenamiento(models.Model):
     name = models.CharField(max_length=30, null=False, unique=True, verbose_name='Nombre')
     date = models.DateTimeField(default=datetime.now, verbose_name='Fecha de entrenamiento')
     type_training = models.CharField(max_length=30, null=False, verbose_name='Tipo de entrenamiento')
-    description = models.CharField(max_length=255, null=False, verbose_name='Descripción')
+    description = models.TextField(max_length=500, null=False, verbose_name='Descripción')
 
     def __str__(self):
         return self.name
@@ -16,5 +16,3 @@ class Entrenamiento(models.Model):
         verbose_name = 'Entrenamiento'
         verbose_name_plural = 'Entrenamientos'
         ordering = ['id']
-
-

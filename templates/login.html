@@ -51,9 +51,11 @@
                                 <div class="caja-login p-4">
                                     <h2 class="fondo texto">Iniciar sesión</h2>
                                     <div class="texto fondo"><i class="bi bi-people-fill" ></i></div>
-                                    <form class="fondo" method="post" role="form" action="login">
+                                    <form class="fondo" method="post">
+                                        <!-- <form class="fondo" method="post" role="form" action="login"></form> -->
+                                        {% csrf_token %}
                                         <div class="fondo mb-3">
-                                            <label for="email" class="fondo form-label">Correo electrónico</label>
+                                            <label for="username" class="fondo form-label">Usuario</label>
                                             <input type="text" id="username" name="username" class="form-control ml-3" placeholder="Ingrese su correo electrónico">
                                         </div>
                                         <div class="fondo mb-3">

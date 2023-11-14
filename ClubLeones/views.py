@@ -1,5 +1,11 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.shortcuts import redirect
+from django.contrib.auth import login
+from django.contrib.auth import logout
+from django.contrib.auth import authenticate
+from django.contrib import messages
+
 
 # Aquí van las rutas de la landing page
 
@@ -25,15 +31,35 @@ def landingentre(request):
 
 #Aquí empiezan las rutas del login y el register
 
+# def login(request):
+#     return render(request,'login.html',{
+#         #context
+#     })
+
 def login(request):
-    return render(request,'login.html',{
-        #context
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(username=username, password=password)
+        if user:
+            login(request, user)
+            #messages.success(request, 'Bienvenido {}'.format(user.username))
+            return redirect('dashboard/')
+        else: 
+            messages.error(request, 'Usuario o contraseña incorrectos')
+    return render(request, 'login.html',{
+
     })
 
 def register(request):
     return render(request,'register.html',{
         #context
     })
+
+def logout_view(request):
+    logout(request)
+    messages.success(request, 'Sesión finalizada')
+    return redirect('login')
 
 # Aquí está la ruta del dashboard
 

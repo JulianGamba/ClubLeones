@@ -12,7 +12,7 @@ class Test(models.Model):
     medium_maximum_score = models.IntegerField(null=False, verbose_name='Puntaje_máximo_medio')
     high_minimum_score = models.IntegerField(null=False, verbose_name='Puntaje_mínimo_alto')
     high_maximum_score = models.IntegerField(null=False, verbose_name='Puntaje_máximo_alto')
-    description = models.CharField(max_length=255, null=False, verbose_name='Descripción')
+    description = models.TextField(max_length=500, null=False, verbose_name='Descripción')
 
     def __str__(self):
         return self.name
@@ -32,7 +32,7 @@ class Plan(models.Model):
     name = models.CharField(max_length=30, null=False, unique=True, verbose_name='Nombre')
     category = models.CharField(max_length=30, null=False, verbose_name='Categoría')
     type_plan = models.CharField(max_length=250, null=False, verbose_name='Tipo')
-    description = models.CharField(max_length=30, null=False, verbose_name='Descripción')
+    description = models.TextField(max_length=500, null=False, verbose_name='Descripción')
     category = models.CharField(max_length=30, null=False, verbose_name='Categoría')
 
     def __str__(self):
@@ -48,11 +48,11 @@ class Plan(models.Model):
 # Aquí se empieza a definir la tabla de Ejercicios
 class Ejercicio(models.Model):
     name = models.CharField(max_length=30, null=False, unique=True, verbose_name='Nombre')
-    description = models.CharField(max_length=250, null=False, verbose_name='Descripción')
+    description = models.TextField(max_length=500, null=False, verbose_name='Descripción')
     # Pendiente de mirar bien como cargar las imagenes y como organizarlas en carpetas y eso...
     # image = models.ImageField(upload_to='photo/%Y/%m/%d', null=True, blank=True)
-    amount = models.IntegerField(null=False, verbose_name='Categoría')
-    seconds = models.IntegerField(null=False, verbose_name='Tipo')
+    amount = models.IntegerField(null=False, verbose_name='Cantidad')
+    seconds = models.IntegerField(null=False, verbose_name='Segundos')
     plan = models.ForeignKey(Plan, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -62,4 +62,4 @@ class Ejercicio(models.Model):
         db_table = 'ejercicio'
         verbose_name = 'Ejercicio'
         verbose_name_plural = 'Ejercicios'
-        ordering = ['id'] 
+        ordering = ['id']  

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Acondicionamiento_fisico',
     'Entrenamiento',
+    'Campeonatos',
 ]
 
 MIDDLEWARE = [

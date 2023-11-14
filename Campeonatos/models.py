@@ -1,13 +1,12 @@
+from datetime import datetime
 from django.db import models
 
 
-class Campeonatos(models.Model):
-    name = models.CharField(max_length=30, null=False, unique=True, verbose_name='Nombre')
-    id_championship = models.IntegerField(null=False, verbose_name='Id_campeonato')
-    name_championship = models.IntegerField(max_length=30, null=False, verbose_name='Nombre_campeonato')
-    mode = models.IntegerField(null=False, verbose_name='Modo')
-    category = models.IntegerField(max_length=30, null=False, verbose_name='Categoria')
-    address = models.IntegerField(null=False, verbose_name='Direccion')
+class Championship(models.Model):
+    name_championship = models.CharField(max_length=30, null=False, verbose_name='Nombre_campeonato')
+    mode = models.CharField(max_length=30, null=False, verbose_name='Modo')
+    category = models.CharField(max_length=30, null=False, verbose_name='Categoria')
+    address = models.CharField(max_length=30, null=False, verbose_name='Direccion')
     amount_of_equipments = models.IntegerField(null=False, verbose_name='cantidad_de_equipos')
   
 
@@ -25,12 +24,11 @@ class Campeonatos(models.Model):
         
         
 # Aquí se empieza a definir la tabla de Acondicionamiento físico
-class Equipo(models.Model):
+class Team(models.Model):
     name = models.CharField(max_length=30, null=False, unique=True, verbose_name='Nombre')
-    id_equipments = models.CharField(null=False, verbose_name='Id_equipos')
     category = models.CharField(max_length=30, null=False, verbose_name='Categoría')
-    inscription = models.CharField(null=False, verbose_name='Inscripcion')
-    equipement = models.CharField(null=False, verbose_name='Equipacion')
+    inscription = models.CharField(max_length=30, null=False, verbose_name='Inscripcion')
+    color_equipment = models.CharField(max_length=30, null=False, verbose_name='Color_equipacion')
 
     def __str__(self):
         return self.name
@@ -43,15 +41,13 @@ class Equipo(models.Model):
 
   
 
-class Jugador(models.Model):
-    id_player = models.CharField(null=False, verbose_name='Id_jugador')
-    id_equipment = models.CharField(null=False, verbose_name='Id_equipo')
+class Player(models.Model):
     name = models.CharField(max_length=30, null=False, unique=True, verbose_name='Nombre')
-    identification = models.CharField(null=False, verbose_name='Identificacion')
+    identification = models.IntegerField(null=False, verbose_name='Identificacion')
     dorsal = models.IntegerField(null=False, verbose_name='Dorsal')
     age = models.IntegerField(null=False, verbose_name='Edad')
     contact_number = models.IntegerField(null=False, verbose_name='Numero de contacto')
-
+    team = models.ForeignKey(Team, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -64,20 +60,50 @@ class Jugador(models.Model):
 
 
 
-class Programacion(models.Model):
-    day = models.CharField(null=False, verbose_name='dia')
-    hour = models.CharField(null=False, verbose_name='hora')
+class Programming(models.Model):
+    date = models.DateTimeField(null=False, verbose_name='fecha')
+    #hour = models.CharField(null=False, verbose_name='hora')
     category = models.CharField(max_length=30, null=False, verbose_name='Categoría')
     equipment_1 = models.CharField(max_length=30, null=False, unique=True, verbose_name='Equipo_1')
     equipment_2 = models.CharField(max_length=30, null=False, unique=True, verbose_name='Equipo_2')
-    address = models.IntegerField(null=False, verbose_name='Direccion')
+    address = models.CharField(max_length=30, null=False, verbose_name='Direccion')
 
 
     def __str__(self):
         return self.name
     
     class Meta:
-        db_table = 'programacion'
-        verbose_name = 'Programacion'
+        db_table = 'programación'
+        verbose_name = 'Programación'
         verbose_name_plural = 'Programaciones'
         ordering = ['id'] 
+        
+
+class Game(models.Model):
+    date = models.DateTimeField(null=False, verbose_name='fecha')
+    category = models.CharField(max_length=30, null=False, verbose_name='Categoría')
+    equipment_1 = models.CharField(max_length=30, null=False, unique=True, verbose_name='Equipo_1')
+    equipment_2 = models.CharField(max_length=30, null=False, unique=True, verbose_name='Equipo_2')
+    team_goals1 = models.IntegerField(null=True, verbose_name='Goles Equipo 1')
+    player_frame_goal_team1 = models.CharField(max_length=30, null=True, verbose_name='Jugador que marcó Gol Equipo 1')
+    team_goals2 = models.IntegerField(null=True, verbose_name='Goles Equipo 2')
+    player_frame_goal_team2 = models.CharField(max_length=30, null=True, verbose_name='Jugador que marcó Gol Equipo 2')
+    result = models.CharField(max_length=30, null=True, verbose_name='Resultado')
+    fouls_committed_team1 = models.IntegerField(null=True, verbose_name='Faltas Cometidas Equipo 1')
+    fouls_committed_team2 = models.IntegerField(null=True, verbose_name='Faltas Cometidas Equipo 2')
+    yellow_cards_team1 = models.IntegerField(null=True, verbose_name='Tarjetas Amarillas Equipo 1')
+    yellow_cards_team2 = models.IntegerField(null=True, verbose_name='Tarjetas Amarillas Equipo 2')
+    red_cards_team1 = models.IntegerField(null=True, verbose_name='Tarjetas Rojas Equipo 1')
+    red_cards_team2 = models.IntegerField(null=True, verbose_name='Tarjetas Rojas Equipo 2')
+    payment_arbitration_team1 = models.DecimalField(max_digits=10, decimal_places=2, null=True, verbose_name='Pago Arbitraje Equipo 1')
+    payment_arbitration_team2 = models.DecimalField(max_digits=10, decimal_places=2, null=True, verbose_name='Pago Arbitraje Equipo 2')
+    programming = models.ForeignKey(Programming, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.equipment_1} vs {self.equipment_2} ({self.date.strftime("%Y-%m-%d %H:%M")})'
+
+    class Meta:
+        db_table = 'partido'
+        verbose_name = 'Partido'
+        verbose_name_plural = 'Partidos'
+        ordering = ['id']
