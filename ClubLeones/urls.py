@@ -17,16 +17,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import views
+from sesion_usuario import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    #path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name='admin:dashboard'),
     path('', views.landingpage, name='landingpage'),
     path('landingacond/', views.landingacond, name='landingacond'),
     path('landingentre/', views.landingentre, name='landingentre'),
     path('landingcamp/', views.landingcamp, name='landingcamp'),
 
-    path('login/', views.login, name='login'),
-    path('register/', views.register, name='register'),
+    path('login/', views.login_view, name='login'),
+    path('register/', views.register_view, name='register'),
     path('logout/', views.logout_view, name='logout'),
 
     path('dashboard/', views.dashboard, name='dashboard'),

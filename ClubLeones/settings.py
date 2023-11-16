@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'Acondicionamiento_fisico',
     'Entrenamiento',
     'Campeonatos',
+    'sesion_usuario',
 ]
 
 MIDDLEWARE = [
