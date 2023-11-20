@@ -68,8 +68,6 @@
                                     <label for="first_name" class="fondo form-label">Nombres</label>
                                     <input name="first_name" type="text" class="form-control" id="first_name"
                                         field="first_name" placeholder="Ingrese sus nombres" required="required">
-                                    <!-- Esto espero poder usarlo para seguir marcando errores durante el llenadod del campo -->
-                                    <!--    <p th:errors = "*{firstName}" class="text-danger" th:if="${#fields.hasErrors('firstName')}"></p>  -->
                                 </div>
                                 <div class="fondo pb-3">
                                     <label for="last_name" class="fondo form-label">Apellidos</label>
@@ -78,17 +76,41 @@
                                     <!-- <p th:errors = "*{lastName}" class="text-danger" th:if="${#fields.hasErrors('lastName')}"></p> -->
                                 </div>
                                 <div class="fondo pb-3">
+                                    <label for="identification" class="fondo form-label">Identificación</label>
+                                    <input name="identification" type="number" class="form-control" id="identification"
+                                        field="identification" placeholder="Ingrese sus nombres" required="required">
+                                </div>
+                                <div class="fondo pb-3">
+                                    <label for="age" class="fondo form-label">Edad</label>
+                                    <input name="age" type="number" class="form-control" id="age"
+                                        field="age" placeholder="Ingrese sus nombres" required="required">
+                                </div>
+                                <div class="fondo pb-3">
+                                    <label for="cellphone_number" class="fondo form-label">Número de celular</label>
+                                    <input name="cellphone_number" type="number" class="form-control" id="cellphone_number"
+                                        field="cellphone_number" placeholder="Ingrese sus nombres" required="required">
+                                </div>
+                                <div class="fondo pb-3">
                                     <label for="email" class="fondo form-label">Correo electronico</label>
                                     <input name="email" type="email" class="form-control" id="email" field="email"
                                         placeholder="Ingrese su correo electrónico" required="required">
                                     <!-- <p th:errors = "*{email}" class="text-danger" th:if="${#fields.hasErrors('email')}"></p> -->
                                 </div>
                                 <div class="fondo pb-3">
+                                    <label for="username" class="fondo form-label">Nombre de usuario</label>
+                                    <input name="username" type="text" class="form-control" id="username"
+                                        field="username" placeholder="Ingrese sus nombres" required="required">
+                                </div>
+                                <div class="fondo pb-3">
                                     <label for="password" class="fondo form-label">Contraseña</label>
                                     <input name="password" type="password" class="form-control" id="password"
                                         field="password" placeholder="Escriba su contraseña" required="required">
-                                    <!-- <p th:errors = "*{password}" class="text-danger" th:if="${#fields.hasErrors('password')}"></p> -->
                                 </div>
+                                <!-- <div class="fondo pb-3">
+                                    <label for="password_confirmation" class="fondo form-label">Confirmar contraseña</label>
+                                    <input name="password_confirmation" type="password" class="form-control" id="password"
+                                        field="password_confirmation" placeholder="Escriba su contraseña" required="required">
+                                </div> -->
                                 <div class="fondo texto pb-3"><button type="submit"
                                         class="btn btn-primary pb-3">Registrarse</button>
                                 </div>

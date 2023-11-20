@@ -180,3 +180,20 @@ def editar_ejercicios(request):
     return render(request,'acondicionamiento_fisico/editar_ejercicios.html',{
         #context
     })
+
+#Aquí empiezan las rutas de la gestión de perfiles
+
+def perfiles(request):
+    return render(request,'acondicionamiento_fisico/perfiles.html',{
+        #context
+    })
+
+# def crear_perfiles(request):
+#     return render(request,'acondicionamiento_fisico/crear_ejercicios.html',{
+#         #context
+#     })
+
+def editar_perfiles(request):
+    return render(request,'acondicionamiento_fisico/editar_perfiles.html',{
+        #context
+    })

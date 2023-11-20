@@ -7,7 +7,10 @@ from django.contrib.auth import logout
 from django.contrib.auth import authenticate
 from django.contrib import messages
 from ClubLeones.views import *
-from .forms import CustomUserCreationForm
+
+from sesion_usuario.models import CustomUser
+
+# from .forms import CustomUserCreationForm
 
 #from ClubLeones.views import landingpage
 
@@ -28,7 +31,51 @@ def login_view(request):
 
     })
 
-# def register_view(request):
+def register_view(request):
+    if request.method == 'POST':
+
+        # Extraer datos del formulario HTML
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        identification = request.POST.get('identification')
+        age = request.POST.get('age')
+        cellphone_number = request.POST.get('cellphone_number')
+        email = request.POST.get('email')
+        username = request.POST.get('username')
+
+        password = request.POST.get('password')
+        
+        # Realizar validaciones si es necesario
+        
+        # Crear el usuario en Django
+
+        # user = CustomUser.objects.create_user(username=username, age=age, identification_number=identification_number)
+
+
+        # user = User.objects.create_user(username=email, email=email, password=password)
+        # user.first_name = first_name
+        # user.last_name = last_name
+        # user.save()
+        
+        user = CustomUser.objects.create_user(username=username, email=email, password=password, age=age, identification=identification, cellphone_number=cellphone_number)
+        user.first_name = first_name
+        user.last_name = last_name
+        user.save()
+
+        # Opcional: iniciar sesión automáticamente después del registro
+        #login(request, user)
+        
+        # Redirigir a donde quieras después del registro exitoso
+        return redirect('login')  # Cambia 'dashboard' por la URL deseada después del registro
+        
+    return render(request, 'register.html')
+
+def logout_view(request):
+    logout(request)
+    messages.success(request, 'Sesión finalizada')
+    return redirect('login')
+
+    # def register_view(request):
 #     return render(request,'register.html',{
 #         #context
 #     })
@@ -43,32 +90,3 @@ def login_view(request):
 #     else:
 #         form = CustomUserCreationForm()
 #     return render(request, 'register.html', {'form': form})
-
-def register_view(request):
-    if request.method == 'POST':
-        # Extraer datos del formulario HTML
-        first_name = request.POST.get('first_name')
-        last_name = request.POST.get('last_name')
-        email = request.POST.get('email')
-        password = request.POST.get('password')
-        
-        # Realizar validaciones si es necesario
-        
-        # Crear el usuario en Django
-        user = User.objects.create_user(username=email, email=email, password=password)
-        user.first_name = first_name
-        user.last_name = last_name
-        user.save()
-        
-        # Opcional: iniciar sesión automáticamente después del registro
-        login(request, user)
-        
-        # Redirigir a donde quieras después del registro exitoso
-        return redirect('login')  # Cambia 'dashboard' por la URL deseada después del registro
-        
-    return render(request, 'register.html')
-
-def logout_view(request):
-    logout(request)
-    messages.success(request, 'Sesión finalizada')
-    return redirect('login')

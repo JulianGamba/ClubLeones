@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Test, Plan, Ejercicio
+from .models import Test, Plan, Ejercicio, Perfil
 
 @admin.register(Test)
 class TestAdmin(admin.ModelAdmin):
@@ -25,5 +25,14 @@ class EjercicioAdmin(admin.ModelAdmin):
     #list_display_links = ('name')
     list_editable = ('amount',)
     search_fields = ('name',)
+    #list_filter = ('category',)
+    list_per_page = 2
+
+@admin.register(Perfil)
+class PerfilAdmin(admin.ModelAdmin):
+    list_display = ('names', 'last_names', 'email')
+    #list_display_links = ('name')
+    #list_editable = ('amount',)
+    search_fields = ('names', 'last_names')
     #list_filter = ('category',)
     list_per_page = 2

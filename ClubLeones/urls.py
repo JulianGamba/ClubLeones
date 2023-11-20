@@ -71,4 +71,8 @@ urlpatterns = [
     path('crear_ejercicios/', views.crear_ejercicios, name='crear_ejercicios'),
     path('editar_ejercicios/', views.editar_ejercicios, name='editar_ejercicios'),
 
+    path('perfiles/', views.perfiles, name='perfiles'),
+    # path('crear_ejercicios/', views.crear_ejercicios, name='crear_ejercicios'),
+    path('editar_perfiles/', views.editar_perfiles, name='editar_perfiles'),
+
 ]

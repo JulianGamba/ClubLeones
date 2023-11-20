@@ -63,3 +63,29 @@ class Ejercicio(models.Model):
         verbose_name = 'Ejercicio'
         verbose_name_plural = 'Ejercicios'
         ordering = ['id']  
+
+
+# Aquí se empieza a definir la tabla de Ejercicios
+class Perfil(models.Model):
+    names = models.CharField(max_length=30, null=False, unique=True, verbose_name='Nombres')
+    last_names = models.CharField(max_length=30, null=False, unique=True, verbose_name='Apellidos')
+    email = models.TextField(max_length=500, null=False, verbose_name='Correo')
+    username = models.CharField(max_length=30, null=False, verbose_name='Nombre_de_usuario')
+    identification = models.IntegerField(null=False, verbose_name='Identificación')
+    age = models.IntegerField(null=False, verbose_name='Edad')
+
+    user = models.ForeignKey(Plan, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.names
+    
+    class Meta:
+        db_table = 'Perfil'
+        verbose_name = 'Perfil'
+        verbose_name_plural = 'Perfiles'
+        ordering = ['id']  
+
+
+#En el registro se debe pedir los siguientes datos:
+# nombres, apellidos, correo, usuario, contraseña, confirmar contraseña, identificacion
+# edad del jugador
