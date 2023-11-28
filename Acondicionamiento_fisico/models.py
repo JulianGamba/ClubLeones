@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.html import format_html
 
 # Aquí se empieza a definir la tabla de Tests
 class Test(models.Model):
@@ -33,7 +34,7 @@ class Plan(models.Model):
     category = models.CharField(max_length=30, null=False, verbose_name='Categoría')
     type_plan = models.CharField(max_length=250, null=False, verbose_name='Tipo')
     description = models.TextField(max_length=500, null=False, verbose_name='Descripción')
-    category = models.CharField(max_length=30, null=False, verbose_name='Categoría')
+    #category = models.CharField(max_length=30, null=False, verbose_name='Categoría')
 
     def __str__(self):
         return self.name
@@ -49,15 +50,17 @@ class Plan(models.Model):
 class Ejercicio(models.Model):
     name = models.CharField(max_length=30, null=False, unique=True, verbose_name='Nombre')
     description = models.TextField(max_length=500, null=False, verbose_name='Descripción')
-    # Pendiente de mirar bien como cargar las imagenes y como organizarlas en carpetas y eso...
-    # image = models.ImageField(upload_to='photo/%Y/%m/%d', null=True, blank=True)
+    image = models.ImageField(upload_to='media', null=True, blank=True, verbose_name='imagen del ejercicio')
+    series_amount = models.IntegerField(null=False, verbose_name='Cantidad de series')
     amount = models.IntegerField(null=False, verbose_name='Cantidad')
-    seconds = models.IntegerField(null=False, verbose_name='Segundos')
     plan = models.ForeignKey(Plan, on_delete=models.CASCADE)
 
+    def show_image(self):
+        return format_html('<img src={} width="100" /> ', self.image.url)
+    
     def __str__(self):
         return self.name
-    
+
     class Meta:
         db_table = 'ejercicio'
         verbose_name = 'Ejercicio'
@@ -70,7 +73,7 @@ class Perfil(models.Model):
     names = models.CharField(max_length=30, null=False, unique=True, verbose_name='Nombres')
     last_names = models.CharField(max_length=30, null=False, unique=True, verbose_name='Apellidos')
     email = models.TextField(max_length=500, null=False, verbose_name='Correo')
-    username = models.CharField(max_length=30, null=False, verbose_name='Nombre_de_usuario')
+    username = models.CharField(max_length=30, null=False, verbose_name='Nombre de usuario')
     identification = models.IntegerField(null=False, verbose_name='Identificación')
     age = models.IntegerField(null=False, verbose_name='Edad')
 

@@ -10,10 +10,6 @@ from ClubLeones.views import *
 
 from sesion_usuario.models import CustomUser
 
-# from .forms import CustomUserCreationForm
-
-#from ClubLeones.views import landingpage
-
 #Aquí empiezan las rutas del login y el register
 
 def login_view(request):
@@ -44,49 +40,34 @@ def register_view(request):
         username = request.POST.get('username')
 
         password = request.POST.get('password')
-        
+        password1 = request.POST.get('password1')
+
         # Realizar validaciones si es necesario
-        
-        # Crear el usuario en Django
 
-        # user = CustomUser.objects.create_user(username=username, age=age, identification_number=identification_number)
+        # Realiza la validación de las contraseñas
+        if password == password1:
+            # Si las contraseñas coinciden, crea el usuario
+            user = CustomUser.objects.create_user(
+                username=username,
+                email=email,
+                password=password,
+                age=age,
+                identification=identification,
+                cellphone_number=cellphone_number
+            )
+            user.first_name = first_name
+            user.last_name = last_name
+            user.save()
+            return redirect('login')  # Redirige a la página deseada después del registro exitoso
+        else:
+            # Si las contraseñas no coinciden, maneja la situación
+            # Por ejemplo, puedes añadir un error al campo 'password1'
+            error_message = "Las contraseñas no coinciden"
+            return render(request, 'register.html', {'error_message': error_message})        
 
-
-        # user = User.objects.create_user(username=email, email=email, password=password)
-        # user.first_name = first_name
-        # user.last_name = last_name
-        # user.save()
-        
-        user = CustomUser.objects.create_user(username=username, email=email, password=password, age=age, identification=identification, cellphone_number=cellphone_number)
-        user.first_name = first_name
-        user.last_name = last_name
-        user.save()
-
-        # Opcional: iniciar sesión automáticamente después del registro
-        #login(request, user)
-        
-        # Redirigir a donde quieras después del registro exitoso
-        return redirect('login')  # Cambia 'dashboard' por la URL deseada después del registro
-        
     return render(request, 'register.html')
 
 def logout_view(request):
     logout(request)
     messages.success(request, 'Sesión finalizada')
     return redirect('login')
-
-    # def register_view(request):
-#     return render(request,'register.html',{
-#         #context
-#     })
-
-# def register_view(request):
-#     if request.method == 'POST':
-#         form = CustomUserCreationForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             # Puedes redirigir a donde quieras después del registro exitoso
-#             return redirect('login')  # O a 'dashboard' si deseas después del registro
-#     else:
-#         form = CustomUserCreationForm()
-#     return render(request, 'register.html', {'form': form})
