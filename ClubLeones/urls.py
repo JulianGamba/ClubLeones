@@ -15,6 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+#from django.contrib import admin as django_admin
 from django.urls import path
 from . import views
 from sesion_usuario import views
@@ -23,8 +24,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    #path('admin/', admin.site.urls),
-    path('admin/', admin.site.urls, name='admin:dashboard'),
+    #path('admin/', django_admin.site.urls),
+    path('admin/', admin.site.urls, name='admin:index'),
+    #path('admin/', admin.site.urls, name='admin:dashboard'),
+
+    #path('admin/', admin.site.urls, name='admin:index'),
+
     path('', views.landingpage, name='landingpage'),
     path('landingacond/', views.landingacond, name='landingacond'),
     path('landingentre/', views.landingentre, name='landingentre'),
@@ -34,7 +39,7 @@ urlpatterns = [
     path('register/', views.register_view, name='register'),
     path('logout/', views.logout_view, name='logout'),
 
-    path('dashboard/', views.dashboard, name='dashboard'),
+    #path('dashboard/', views.dashboard, name='dashboard'),
 
     path('error404/', views.error404, name='error404'),
     path('error500/', views.error500, name='error500'),

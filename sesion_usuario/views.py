@@ -20,7 +20,7 @@ def login_view(request):
         if user:
             login(request, user)
             messages.success(request, 'Bienvenido {}'.format(user.username))
-            return redirect('dashboard')
+            return redirect('admin:index')
         else: 
             messages.error(request, 'Usuario o contraseña incorrectos')
     return render(request, 'login.html',{
